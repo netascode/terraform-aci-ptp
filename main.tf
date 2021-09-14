@@ -1,9 +1,7 @@
-resource "aci_rest" "fvTenant" {
-  dn         = "uni/tn-${var.name}"
-  class_name = "fvTenant"
+resource "aci_rest" "latencyPtpMode" {
+  dn         = "uni/fabric/ptpmode"
+  class_name = "latencyPtpMode"
   content = {
-    name      = var.name
-    nameAlias = var.alias
-    descr     = var.description
+    state = var.admin_state == true ? "enabled" : "disabled"
   }
 }

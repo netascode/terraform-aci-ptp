@@ -14,35 +14,21 @@ terraform {
 module "main" {
   source = "../.."
 
-  name        = "ABC"
-  alias       = "ALIAS"
-  description = "DESCR"
+  admin_state = true
 }
 
-data "aci_rest" "fvTenant" {
-  dn = "uni/tn-ABC"
+data "aci_rest" "latencyPtpMode" {
+  dn = "uni/fabric/ptpmode"
 
   depends_on = [module.main]
 }
 
-resource "test_assertions" "fvTenant" {
-  component = "fvTenant"
+resource "test_assertions" "latencyPtpMode" {
+  component = "latencyPtpMode"
 
-  equal "name" {
-    description = "name"
-    got         = data.aci_rest.fvTenant.content.name
-    want        = "ABC"
-  }
-
-  equal "nameAlias" {
-    description = "nameAlias"
-    got         = data.aci_rest.fvTenant.content.nameAlias
-    want        = "ALIAS"
-  }
-
-  equal "descr" {
-    description = "descr"
-    got         = data.aci_rest.fvTenant.content.descr
-    want        = "DESCR"
+  equal "state" {
+    description = "state"
+    got         = data.aci_rest.latencyPtpMode.content.state
+    want        = "enabled"
   }
 }

@@ -1,8 +1,6 @@
-module "aci_scaffolding" {
-  source  = "netascode/scaffolding/aci"
+module "aci_ptp" {
+  source  = "netascode/ptp/aci"
   version = ">= 0.0.1"
 
-  name        = "ABC"
-  alias       = "ABC-ALIAS"
-  description = "My Description"
+  admin_state = true
 }
