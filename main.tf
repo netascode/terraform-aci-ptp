@@ -1,4 +1,4 @@
-resource "aci_rest" "latencyPtpMode" {
+resource "aci_rest_managed" "latencyPtpMode" {
   dn         = "uni/fabric/ptpmode"
   class_name = "latencyPtpMode"
   content = {

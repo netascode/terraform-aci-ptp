@@ -1,4 +1,4 @@
 output "dn" {
-  value       = aci_rest.latencyPtpMode.id
+  value       = aci_rest_managed.latencyPtpMode.id
   description = "Distinguished name of `latencyPtpMode` object."
 }

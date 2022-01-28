@@ -5,8 +5,8 @@ terraform {
     }
 
     aci = {
-      source  = "netascode/aci"
-      version = ">=0.2.0"
+      source  = "CiscoDevNet/aci"
+      version = ">=2.0.0"
     }
   }
 }
@@ -17,7 +17,7 @@ module "main" {
   admin_state = true
 }
 
-data "aci_rest" "latencyPtpMode" {
+data "aci_rest_managed" "latencyPtpMode" {
   dn = "uni/fabric/ptpmode"
 
   depends_on = [module.main]
@@ -28,7 +28,7 @@ resource "test_assertions" "latencyPtpMode" {
 
   equal "state" {
     description = "state"
-    got         = data.aci_rest.latencyPtpMode.content.state
+    got         = data.aci_rest_managed.latencyPtpMode.content.state
     want        = "enabled"
   }
 }
