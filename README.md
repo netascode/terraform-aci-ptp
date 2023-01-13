@@ -37,6 +37,12 @@ module "aci_ptp" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_admin_state"></a> [admin\_state](#input\_admin\_state) | PTP admin state | `bool` | `false` | no |
+| <a name="input_global_domain"></a> [global\_domain](#input\_global\_domain) | Global domain | `number` | `0` | no |
+| <a name="input_profile"></a> [profile](#input\_profile) | PTP profile. Choices: `aes67`, `default`, `smpte`, `telecom_full_path` | `string` | `aes67` | no |
+| <a name="input_announce_interval"></a> [announce\_interval](#input\_announce\_interval) | Announce interval | `number` | `1` | no |
+| <a name="input_announce_timeout"></a> [announce\_timeout](#input\_announce\_timeout) | Announce timeout | `number` | `3` | no |
+| <a name="input_sync_interval"></a> [sync\_interval](#input\_sync\_interval) | Sync interval | `number` | `-3` | no |
+| <a name="input_delay_interval"></a> [delay\_interval](#input\_delay\_interval) | Delay interval | `number` | `-2` | no |
 
 ## Outputs
 
