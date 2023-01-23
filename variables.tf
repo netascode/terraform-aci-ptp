@@ -39,7 +39,7 @@ variable "announce_timeout" {
   type        = number
 
   validation {
-    condition     = var.announce_timeout == null ? true : (var.announce_timeout >= 2 && var.announce_timeout <= 10) 
+    condition     = var.announce_timeout == null ? true : (var.announce_timeout >= 2 && var.announce_timeout <= 10)
     error_message = "Valid values are 2 to 10 for aes67, default, and smpte, and 2 to 4 for telecom_full_path"
   }
 }
