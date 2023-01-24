@@ -15,7 +15,13 @@ module "aci_ptp" {
   source  = "netascode/ptp/aci"
   version = ">= 0.1.0"
 
-  admin_state = true
+  admin_state       = true
+  global_domain     = 0
+  profile           = "aes67"
+  announce_interval = 1
+  announce_timeout  = 3
+  sync_interval     = -3
+  delay_interval    = -2
 }
 ```
 
@@ -37,6 +43,12 @@ module "aci_ptp" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_admin_state"></a> [admin\_state](#input\_admin\_state) | PTP admin state | `bool` | `false` | no |
+| <a name="input_global_domain"></a> [global\_domain](#input\_global\_domain) | Global domain | `number` | n/a | yes |
+| <a name="input_profile"></a> [profile](#input\_profile) | PTP profile. Choices: `aes67`, `default`, `smpte`, `telecom_full_path` | `string` | n/a | yes |
+| <a name="input_announce_interval"></a> [announce\_interval](#input\_announce\_interval) | Announce interval | `number` | n/a | yes |
+| <a name="input_announce_timeout"></a> [announce\_timeout](#input\_announce\_timeout) | Announce timeout | `number` | n/a | yes |
+| <a name="input_sync_interval"></a> [sync\_interval](#input\_sync\_interval) | Sync interval | `number` | n/a | yes |
+| <a name="input_delay_interval"></a> [delay\_interval](#input\_delay\_interval) | Delay interval | `number` | n/a | yes |
 
 ## Outputs
 
