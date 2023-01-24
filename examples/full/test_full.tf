@@ -42,37 +42,37 @@ resource "test_assertions" "latencyPtpMode" {
 
   equal "global_domain" {
     description = "global_domain"
-    got         = data.aci_rest_managed.latencyPtpMode.content.global_domain
+    got         = data.aci_rest_managed.latencyPtpMode.content.globalDomain
     want        = "0"
   }
 
   equal "profile" {
     description = "profile"
-    got         = data.aci_rest_managed.latencyPtpMode.content.profile
+    got         = data.aci_rest_managed.latencyPtpMode.content.fabProfileTemplate
     want        = "aes67"
   }
 
   equal "announce_interval" {
     description = "announce_interval"
-    got         = data.aci_rest_managed.latencyPtpMode.content.announce_interval
+    got         = data.aci_rest_managed.latencyPtpMode.content.fabAnnounceIntvl
     want        = "1"
   }
 
   equal "announce_timeout" {
     description = "announce_timeout"
-    got         = data.aci_rest_managed.latencyPtpMode.content.announce_timeout
-    want        = "1"
+    got         = data.aci_rest_managed.latencyPtpMode.content.fabAnnounceTimeout
+    want        = "3"
   }
 
   equal "sync_interval" {
     description = "sync_interval"
-    got         = data.aci_rest_managed.latencyPtpMode.content.sync_interval
+    got         = data.aci_rest_managed.latencyPtpMode.content.fabSyncIntvl
     want        = "-3"
   }
 
   equal "delay_interval" {
     description = "delay_interval"
-    got         = data.aci_rest_managed.latencyPtpMode.content.delay_interval
+    got         = data.aci_rest_managed.latencyPtpMode.content.fabDelayIntvl
     want        = "-2"
   }
 }
